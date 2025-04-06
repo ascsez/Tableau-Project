@@ -1,0 +1,744 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20243.24.1010.1014                               -->
+<workbook original-version='18.1' source-build='2024.3.0 (20243.24.1010.1014)' source-platform='mac' version='18.1' xml:base='https://public.tableau.com' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AnimationOnByDefault />
+    <IntuitiveSorting />
+    <IntuitiveSorting_SP2 />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelExtractV2 />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <repository-location id='JointablesinTableau' path='/workbooks' revision='1.0' />
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='Demographics+ (Tableau Joins File)' inline='true' name='federated.01up1wy1pkevsz15bnmca0ytw3nn' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='Tableau Joins File' name='excel-direct.0w0w27u0rpo8vo1dotec41wcn2ai'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='/Users/ascsezgopalbansi/Documents/Tableau/Tableau Joins File.xlsx' interpretationMode='0' password='' server='' validate='no' workgroup-auth-mode='as-is' />
+          </named-connection>
+        </named-connections>
+        <relation join='inner' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[Demographics].[EmployeeID]' />
+              <expression op='[Salary].[EmployeeID]' />
+            </expression>
+          </clause>
+          <relation join='right' type='join'>
+            <clause type='join'>
+              <expression op='='>
+                <expression op='[Demographics].[EmployeeID]' />
+                <expression op='[JobTitle].[EmployeeID]' />
+              </expression>
+            </clause>
+            <relation connection='excel-direct.0w0w27u0rpo8vo1dotec41wcn2ai' name='Demographics' table='[Demographics$]' type='table'>
+              <columns gridOrigin='A1:D11:no:A1:D11:0' header='yes' outcome='6'>
+                <column datatype='integer' name='EmployeeID' ordinal='0' />
+                <column datatype='string' name='NameofEmployee' ordinal='1' />
+                <column datatype='integer' name='EmployeeAge' ordinal='2' />
+                <column datatype='string' name='EmployeeGender' ordinal='3' />
+              </columns>
+            </relation>
+            <relation connection='excel-direct.0w0w27u0rpo8vo1dotec41wcn2ai' name='JobTitle' table='[JobTitle$]' type='table'>
+              <columns gridOrigin='A1:C11:no:A1:C11:0' header='yes' outcome='2'>
+                <column datatype='integer' name='EmployeeID' ordinal='0' />
+                <column datatype='string' name='EmployeeName' ordinal='1' />
+                <column datatype='string' name='JobTitle' ordinal='2' />
+              </columns>
+            </relation>
+          </relation>
+          <relation connection='excel-direct.0w0w27u0rpo8vo1dotec41wcn2ai' name='Salary' table='[Salary$]' type='table'>
+            <columns gridOrigin='A1:B8:no:A1:B8:0' header='yes' outcome='6'>
+              <column datatype='integer' name='EmployeeID' ordinal='0' />
+              <column datatype='integer' name='EmployeeSalary' ordinal='1' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[EmployeeAge]' value='[Demographics].[EmployeeAge]' />
+          <map key='[EmployeeGender]' value='[Demographics].[EmployeeGender]' />
+          <map key='[EmployeeID (JobTitle)]' value='[JobTitle].[EmployeeID]' />
+          <map key='[EmployeeID (Salary)]' value='[Salary].[EmployeeID]' />
+          <map key='[EmployeeID]' value='[Demographics].[EmployeeID]' />
+          <map key='[EmployeeName]' value='[JobTitle].[EmployeeName]' />
+          <map key='[EmployeeSalary]' value='[Salary].[EmployeeSalary]' />
+          <map key='[JobTitle]' value='[JobTitle].[JobTitle]' />
+          <map key='[NameofEmployee]' value='[Demographics].[NameofEmployee]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Demographics]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:D11:no:A1:D11:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[JobTitle]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:C11:no:A1:C11:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>2</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Salary]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:B8:no:A1:B8:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>EmployeeID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[EmployeeID]</local-name>
+            <parent-name>[Demographics]</parent-name>
+            <remote-alias>EmployeeID</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <object-id>[Demographics_0723CA04EAF04C9D84C9EDE5BA60ED02]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>NameofEmployee</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[NameofEmployee]</local-name>
+            <parent-name>[Demographics]</parent-name>
+            <remote-alias>NameofEmployee</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[Demographics_0723CA04EAF04C9D84C9EDE5BA60ED02]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>EmployeeAge</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[EmployeeAge]</local-name>
+            <parent-name>[Demographics]</parent-name>
+            <remote-alias>EmployeeAge</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <object-id>[Demographics_0723CA04EAF04C9D84C9EDE5BA60ED02]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>EmployeeGender</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[EmployeeGender]</local-name>
+            <parent-name>[Demographics]</parent-name>
+            <remote-alias>EmployeeGender</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[Demographics_0723CA04EAF04C9D84C9EDE5BA60ED02]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>EmployeeID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[EmployeeID (JobTitle)]</local-name>
+            <parent-name>[JobTitle]</parent-name>
+            <remote-alias>EmployeeID</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <object-id>[Demographics_0723CA04EAF04C9D84C9EDE5BA60ED02]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>EmployeeName</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[EmployeeName]</local-name>
+            <parent-name>[JobTitle]</parent-name>
+            <remote-alias>EmployeeName</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[Demographics_0723CA04EAF04C9D84C9EDE5BA60ED02]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>JobTitle</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[JobTitle]</local-name>
+            <parent-name>[JobTitle]</parent-name>
+            <remote-alias>JobTitle</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[Demographics_0723CA04EAF04C9D84C9EDE5BA60ED02]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>EmployeeID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[EmployeeID (Salary)]</local-name>
+            <parent-name>[Salary]</parent-name>
+            <remote-alias>EmployeeID</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <object-id>[Demographics_0723CA04EAF04C9D84C9EDE5BA60ED02]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>EmployeeSalary</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[EmployeeSalary]</local-name>
+            <parent-name>[Salary]</parent-name>
+            <remote-alias>EmployeeSalary</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <object-id>[Demographics_0723CA04EAF04C9D84C9EDE5BA60ED02]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Employee Age' datatype='integer' name='[EmployeeAge]' role='measure' type='quantitative' />
+      <column caption='Employee Gender' datatype='string' name='[EmployeeGender]' role='dimension' type='nominal' />
+      <column datatype='integer' name='[EmployeeID (JobTitle)]' role='dimension' type='ordinal' />
+      <column datatype='integer' name='[EmployeeID (Salary)]' role='dimension' type='ordinal' />
+      <column caption='Employee ID' datatype='integer' name='[EmployeeID]' role='dimension' type='ordinal' />
+      <column caption='Employee Name' datatype='string' name='[EmployeeName]' role='dimension' type='nominal' />
+      <column caption='Employee Salary' datatype='integer' name='[EmployeeSalary]' role='measure' type='quantitative' />
+      <column caption='Job Title' datatype='string' name='[JobTitle]' role='dimension' type='nominal' />
+      <column caption='Nameof Employee' datatype='string' name='[NameofEmployee]' role='dimension' type='nominal' />
+      <column caption='Demographics' datatype='table' name='[__tableau_internal_object_id__].[Demographics_0723CA04EAF04C9D84C9EDE5BA60ED02]' role='measure' type='quantitative' />
+      <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' object-id='' units='records'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='/var/folders/7j/yz0pnv8s7wlfnb0pbd9s98r00000gn/T/tableau-temp/#TableauTemp_0d6knzj1airej611fg6e60n92q9k.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='02/02/2025 08:19:54 PM' username='tableau_internal_user'>
+          <relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <cols>
+            <map key='[EmployeeAge]' value='[Extract].[EmployeeAge]' />
+            <map key='[EmployeeGender]' value='[Extract].[EmployeeGender]' />
+            <map key='[EmployeeID (JobTitle)]' value='[Extract].[EmployeeID]' />
+            <map key='[EmployeeID (Salary)]' value='[Extract].[EmployeeID1]' />
+            <map key='[EmployeeID]' value='[Extract].[EmployeeID2]' />
+            <map key='[EmployeeName]' value='[Extract].[EmployeeName]' />
+            <map key='[EmployeeSalary]' value='[Extract].[EmployeeSalary]' />
+            <map key='[JobTitle]' value='[Extract].[JobTitle]' />
+            <map key='[NameofEmployee]' value='[Extract].[NameofEmployee]' />
+          </cols>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>EmployeeID2</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[EmployeeID]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>EmployeeID2</remote-alias>
+              <ordinal>0</ordinal>
+              <family>Demographics</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>7</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[Demographics_0723CA04EAF04C9D84C9EDE5BA60ED02]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>NameofEmployee</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[NameofEmployee]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>NameofEmployee</remote-alias>
+              <ordinal>1</ordinal>
+              <family>Demographics</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>7</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[Demographics_0723CA04EAF04C9D84C9EDE5BA60ED02]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>EmployeeAge</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[EmployeeAge]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>EmployeeAge</remote-alias>
+              <ordinal>2</ordinal>
+              <family>Demographics</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>6</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[Demographics_0723CA04EAF04C9D84C9EDE5BA60ED02]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>EmployeeGender</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[EmployeeGender]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>EmployeeGender</remote-alias>
+              <ordinal>3</ordinal>
+              <family>Demographics</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[Demographics_0723CA04EAF04C9D84C9EDE5BA60ED02]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>EmployeeID</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[EmployeeID (JobTitle)]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>EmployeeID</remote-alias>
+              <ordinal>4</ordinal>
+              <family>JobTitle</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>7</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[Demographics_0723CA04EAF04C9D84C9EDE5BA60ED02]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>EmployeeName</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[EmployeeName]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>EmployeeName</remote-alias>
+              <ordinal>5</ordinal>
+              <family>JobTitle</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>7</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[Demographics_0723CA04EAF04C9D84C9EDE5BA60ED02]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>JobTitle</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[JobTitle]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>JobTitle</remote-alias>
+              <ordinal>6</ordinal>
+              <family>JobTitle</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>7</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[Demographics_0723CA04EAF04C9D84C9EDE5BA60ED02]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>EmployeeID1</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[EmployeeID (Salary)]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>EmployeeID1</remote-alias>
+              <ordinal>7</ordinal>
+              <family>Salary</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>7</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[Demographics_0723CA04EAF04C9D84C9EDE5BA60ED02]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>EmployeeSalary</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[EmployeeSalary]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>EmployeeSalary</remote-alias>
+              <ordinal>8</ordinal>
+              <family>Salary</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>6</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[Demographics_0723CA04EAF04C9D84C9EDE5BA60ED02]</object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <object-graph>
+        <objects>
+          <object caption='Demographics' id='Demographics_0723CA04EAF04C9D84C9EDE5BA60ED02'>
+            <properties context=''>
+              <relation join='inner' type='join'>
+                <clause type='join'>
+                  <expression op='='>
+                    <expression op='[Demographics].[EmployeeID]' />
+                    <expression op='[Salary].[EmployeeID]' />
+                  </expression>
+                </clause>
+                <relation join='right' type='join'>
+                  <clause type='join'>
+                    <expression op='='>
+                      <expression op='[Demographics].[EmployeeID]' />
+                      <expression op='[JobTitle].[EmployeeID]' />
+                    </expression>
+                  </clause>
+                  <relation connection='excel-direct.0w0w27u0rpo8vo1dotec41wcn2ai' name='Demographics' table='[Demographics$]' type='table'>
+                    <columns gridOrigin='A1:D11:no:A1:D11:0' header='yes' outcome='6'>
+                      <column datatype='integer' name='EmployeeID' ordinal='0' />
+                      <column datatype='string' name='NameofEmployee' ordinal='1' />
+                      <column datatype='integer' name='EmployeeAge' ordinal='2' />
+                      <column datatype='string' name='EmployeeGender' ordinal='3' />
+                    </columns>
+                  </relation>
+                  <relation connection='excel-direct.0w0w27u0rpo8vo1dotec41wcn2ai' name='JobTitle' table='[JobTitle$]' type='table'>
+                    <columns gridOrigin='A1:C11:no:A1:C11:0' header='yes' outcome='2'>
+                      <column datatype='integer' name='EmployeeID' ordinal='0' />
+                      <column datatype='string' name='EmployeeName' ordinal='1' />
+                      <column datatype='string' name='JobTitle' ordinal='2' />
+                    </columns>
+                  </relation>
+                </relation>
+                <relation connection='excel-direct.0w0w27u0rpo8vo1dotec41wcn2ai' name='Salary' table='[Salary$]' type='table'>
+                  <columns gridOrigin='A1:B8:no:A1:B8:0' header='yes' outcome='6'>
+                    <column datatype='integer' name='EmployeeID' ordinal='0' />
+                    <column datatype='integer' name='EmployeeSalary' ordinal='1' />
+                  </columns>
+                </relation>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Extract' table='[Extract].[Extract]' type='table' />
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Demographics+ (Tableau Joins File)' name='federated.01up1wy1pkevsz15bnmca0ytw3nn' />
+          </datasources>
+          <datasource-dependencies datasource='federated.01up1wy1pkevsz15bnmca0ytw3nn'>
+            <column caption='Employee Name' datatype='string' name='[EmployeeName]' role='dimension' type='nominal' />
+            <column caption='Employee Salary' datatype='integer' name='[EmployeeSalary]' role='measure' type='quantitative' />
+            <column-instance column='[EmployeeName]' derivation='None' name='[none:EmployeeName:nk]' pivot='key' type='nominal' />
+            <column-instance column='[EmployeeSalary]' derivation='Sum' name='[sum:EmployeeSalary:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.01up1wy1pkevsz15bnmca0ytw3nn].[none:EmployeeName:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.01up1wy1pkevsz15bnmca0ytw3nn].[sum:EmployeeSalary:qk]' shelf='columns' />
+          </shelf-sorts>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.01up1wy1pkevsz15bnmca0ytw3nn].[sum:EmployeeSalary:qk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.01up1wy1pkevsz15bnmca0ytw3nn].[sum:EmployeeSalary:qk]</rows>
+        <cols>[federated.01up1wy1pkevsz15bnmca0ytw3nn].[none:EmployeeName:nk]</cols>
+      </table>
+      <simple-id uuid='{3C871D6E-EA81-40BE-989C-7D1649D60904}' />
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' maximized='true' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.01up1wy1pkevsz15bnmca0ytw3nn].[sum:EmployeeSalary:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.01up1wy1pkevsz15bnmca0ytw3nn].[none:EmployeeID (JobTitle):ok]</field>
+            <field>[federated.01up1wy1pkevsz15bnmca0ytw3nn].[none:EmployeeID (Salary):ok]</field>
+            <field>[federated.01up1wy1pkevsz15bnmca0ytw3nn].[none:EmployeeName:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{9AE7AEE4-3D4D-4E4E-B24E-B4107328278D}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='384' name='Sheet 1' width='384'>
+      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
+    </thumbnail>
+  </thumbnails>
+</workbook>
